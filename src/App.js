@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component, useState} from "react";
+
+// class App extends Component {
+//   constructor(){
+//     super();
+//     this.state = {
+//       year: 1987,
+//       age: 33
+//     };
+//   }
+
+//   handleClick =()=> {
+//     let newAge = this.state.age + 1
+//     this.setState({age: newAge})
+//   }
+
+//   render(){
+//     return(
+//       <div>
+//         <h2>Frankie was born in {this.state.year}. He is {this.state.age} years old.</h2>
+//       <button onClick={this.handleClick}>Click Me!</button>
+//       </div>
+//     );
+//   }
+// }
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [state, setState] = useState({year: 1987, age: 33})
+  const handleClick =()=> {
+    let newAge = state.age + 1
+    setState({age: newAge});
+  }
+
+  return(
+    <div>
+      <h2>Frankie was born in {state.year}. He is {state.age} years old.</h2>
+      <button onClick={handleClick}>Click Me!</button>
     </div>
   );
 }
